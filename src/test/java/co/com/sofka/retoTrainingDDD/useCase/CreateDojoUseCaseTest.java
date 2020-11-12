@@ -12,6 +12,7 @@ import co.com.sofka.retoTrainingDDD.domain.VOShared.MemberGit;
 import co.com.sofka.retoTrainingDDD.domain.VOShared.Name;
 import co.com.sofka.retoTrainingDDD.domain.VOShared.OpeningHours;
 import co.com.sofka.retoTrainingDDD.domain.VOShared.PersonId;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -21,6 +22,14 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 class CreateDojoUseCaseTest extends UseCaseHandleBaseTest{
+    @BeforeEach
+    void setup(){
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Test
     void crearDojoTest(){

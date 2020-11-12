@@ -2,7 +2,9 @@ package co.com.sofka.retoTrainingDDD.domain.Dojo;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
+import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.ClanId;
 import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.GroupGit;
+import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.Score;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.entities.Sensei;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.events.*;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.valueObjects.*;
@@ -87,9 +89,8 @@ public class Dojo extends AggregateEvent<DojoId> {
     public void changeDataInfo(DataInfo dataInfo){
         appendChange(new ChangedDataInfo(dataInfo)).apply();
     }
-    //TODO recibir parametros necesarios
-    //TODO creo que a este no esta suscrito porque afecta es el clan, solo se lanza el evento
-    public void evaluateClan(){
-        appendChange(new EvaluatedClan()).apply();
+
+    public void evaluateClan(ClanId clanId, Score score){
+        appendChange(new EvaluatedClan(clanId, score)).apply();
     }
 }

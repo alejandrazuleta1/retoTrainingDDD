@@ -10,6 +10,7 @@ import co.com.sofka.retoTrainingDDD.domain.Dojo.valueObjects.DataInfo;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.valueObjects.DojoId;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.valueObjects.Location;
 import co.com.sofka.retoTrainingDDD.domain.VOShared.OpeningHours;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -20,6 +21,14 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
 class ChangeMeetUrlDojoUseCaseTest extends UseCaseHandleBaseTest{
+    @BeforeEach
+    void setup(){
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Test
     void changeMeetUrlDojo(){

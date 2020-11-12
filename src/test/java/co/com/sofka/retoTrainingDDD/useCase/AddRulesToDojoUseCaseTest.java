@@ -8,6 +8,7 @@ import co.com.sofka.retoTrainingDDD.domain.Dojo.commands.AgregarReglasAlDojo;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.events.CreatedDojo;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.valueObjects.*;
 import co.com.sofka.retoTrainingDDD.domain.VOShared.OpeningHours;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -17,6 +18,14 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
 class AddRulesToDojoUseCaseTest extends UseCaseHandleBaseTest{
+    @BeforeEach
+    void setup(){
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Test
     void addRulesToDojoUseCaseTest(){

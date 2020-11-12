@@ -58,8 +58,8 @@ public class Clan extends AggregateEvent<ClanId> {
         appendChange(new AppliedColor(color)).apply();
     }
 
-    public void addScoreToMember(MemberId memberId,Score score){
-        appendChange(new UpdatedScoreOfMember(memberId, score)).apply();
+    public void addScoreToMember(Score score){
+        appendChange(new UpdatedScoreOfMember(score)).apply();
     }
 
     public void updateMember(MemberId memberId, Gender gender, Email email){

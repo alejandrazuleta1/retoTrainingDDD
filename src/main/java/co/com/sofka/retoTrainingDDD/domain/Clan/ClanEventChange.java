@@ -28,9 +28,7 @@ public class ClanEventChange extends EventChange {
 
         apply((UpdatedName updatedName)-> clan.name = updatedName.getName());
 
-        apply((UpdatedScoreOfMember updatedScoreOfMember)-> clan.members.stream().filter(member -> member.identity().equals(updatedScoreOfMember.getMemberId()))
-                .findFirst()
-                .ifPresent(member -> member.addScore(updatedScoreOfMember.getScore())));
+        apply((UpdatedScoreOfMember updatedScoreOfMember)-> clan.members.forEach(member -> member.addScore(updatedScoreOfMember.getScore())));
 
         apply((UpdateMember updateMember)->{
             clan.members.stream().filter(member -> member.identity().equals(updateMember.getMemberId()))
