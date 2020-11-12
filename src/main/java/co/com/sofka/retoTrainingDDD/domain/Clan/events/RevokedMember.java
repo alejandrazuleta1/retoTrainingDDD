@@ -1,7 +1,7 @@
-package co.com.sofka.retoTrainingDDD.Clan.events;
+package co.com.sofka.retoTrainingDDD.domain.Clan.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.retoTrainingDDD.Clan.valueObjects.MemberId;
+import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.MemberId;
 
 public class RevokedMember extends DomainEvent {
     private final MemberId memberId;

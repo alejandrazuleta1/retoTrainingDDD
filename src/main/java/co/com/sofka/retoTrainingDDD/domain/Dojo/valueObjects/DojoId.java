@@ -1,4 +1,4 @@
-package co.com.sofka.retoTrainingDDD.Dojo.valueObjects;
+package co.com.sofka.retoTrainingDDD.domain.Dojo.valueObjects;
 
 import co.com.sofka.domain.generic.Identity;
 

@@ -1,4 +1,4 @@
-package co.com.sofka.retoTrainingDDD.Clan.valueObjects;
+package co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects;
 
 import co.com.sofka.domain.generic.ValueObject;
 

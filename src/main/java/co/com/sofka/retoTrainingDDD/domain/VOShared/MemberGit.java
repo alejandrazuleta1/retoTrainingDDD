@@ -1,8 +1,6 @@
-package co.com.sofka.retoTrainingDDD.VOShared;
+package co.com.sofka.retoTrainingDDD.domain.VOShared;
 
 import co.com.sofka.domain.generic.ValueObject;
-
-import java.util.Objects;
 
 public class MemberGit implements ValueObject<MemberGit.Propiedades> {
     private final Integer memberGitId;

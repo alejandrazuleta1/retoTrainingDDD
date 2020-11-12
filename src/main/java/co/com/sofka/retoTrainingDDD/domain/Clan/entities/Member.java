@@ -1,13 +1,13 @@
-package co.com.sofka.retoTrainingDDD.Clan.entities;
+package co.com.sofka.retoTrainingDDD.domain.Clan.entities;
 
 import co.com.sofka.domain.generic.Entity;
-import co.com.sofka.retoTrainingDDD.Clan.valueObjects.Email;
-import co.com.sofka.retoTrainingDDD.Clan.valueObjects.Gender;
-import co.com.sofka.retoTrainingDDD.Clan.valueObjects.MemberId;
-import co.com.sofka.retoTrainingDDD.Clan.valueObjects.Score;
-import co.com.sofka.retoTrainingDDD.VOShared.MemberGit;
-import co.com.sofka.retoTrainingDDD.VOShared.Name;
-import co.com.sofka.retoTrainingDDD.VOShared.PersonId;
+import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.Email;
+import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.Gender;
+import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.MemberId;
+import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.Score;
+import co.com.sofka.retoTrainingDDD.domain.VOShared.MemberGit;
+import co.com.sofka.retoTrainingDDD.domain.VOShared.Name;
+import co.com.sofka.retoTrainingDDD.domain.VOShared.PersonId;
 
 import java.util.List;
 

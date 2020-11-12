@@ -1,4 +1,4 @@
-package co.com.sofka.retoTrainingDDD.VOShared;
+package co.com.sofka.retoTrainingDDD.domain.VOShared;
 
 import co.com.sofka.domain.generic.Identity;
 

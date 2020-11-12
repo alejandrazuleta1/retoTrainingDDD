@@ -1,8 +1,8 @@
-package co.com.sofka.retoTrainingDDD.Clan.valueObjects;
+package co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects;
 
 import co.com.sofka.domain.generic.ValueObject;
-import co.com.sofka.retoTrainingDDD.Dojo.valueObjects.DojoId;
-import co.com.sofka.retoTrainingDDD.VOShared.Date;
+import co.com.sofka.retoTrainingDDD.domain.Dojo.valueObjects.DojoId;
+import co.com.sofka.retoTrainingDDD.domain.VOShared.Date;
 
 public class Score implements ValueObject<Score.Propiedades> {
     private final Integer point;

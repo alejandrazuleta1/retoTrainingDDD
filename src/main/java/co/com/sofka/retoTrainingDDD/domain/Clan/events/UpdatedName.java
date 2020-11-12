@@ -1,7 +1,7 @@
-package co.com.sofka.retoTrainingDDD.Clan.events;
+package co.com.sofka.retoTrainingDDD.domain.Clan.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.retoTrainingDDD.VOShared.Name;
+import co.com.sofka.retoTrainingDDD.domain.VOShared.Name;
 
 public class UpdatedName extends DomainEvent {
     private final Name name;

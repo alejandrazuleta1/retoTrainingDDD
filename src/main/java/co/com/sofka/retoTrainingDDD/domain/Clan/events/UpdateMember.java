@@ -1,9 +1,9 @@
-package co.com.sofka.retoTrainingDDD.Clan.events;
+package co.com.sofka.retoTrainingDDD.domain.Clan.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.retoTrainingDDD.Clan.valueObjects.Email;
-import co.com.sofka.retoTrainingDDD.Clan.valueObjects.Gender;
-import co.com.sofka.retoTrainingDDD.Clan.valueObjects.MemberId;
+import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.Email;
+import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.Gender;
+import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.MemberId;
 
 public class UpdateMember extends DomainEvent {
     private final MemberId memberId;

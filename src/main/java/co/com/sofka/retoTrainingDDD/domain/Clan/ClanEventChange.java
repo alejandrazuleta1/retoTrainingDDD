@@ -1,8 +1,8 @@
-package co.com.sofka.retoTrainingDDD.Clan;
+package co.com.sofka.retoTrainingDDD.domain.Clan;
 
 import co.com.sofka.domain.generic.EventChange;
-import co.com.sofka.retoTrainingDDD.Clan.entities.Member;
-import co.com.sofka.retoTrainingDDD.Clan.events.*;
+import co.com.sofka.retoTrainingDDD.domain.Clan.entities.Member;
+import co.com.sofka.retoTrainingDDD.domain.Clan.events.*;
 
 public class ClanEventChange extends EventChange {
     public ClanEventChange(Clan clan) {
