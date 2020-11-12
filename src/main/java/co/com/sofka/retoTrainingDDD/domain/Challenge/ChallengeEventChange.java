@@ -39,6 +39,10 @@ public class ChallengeEventChange extends EventChange {
             challenge.isRevoked = Boolean.TRUE;
         });
 
+        apply((SubscribedClan subscribedClan)->{
+            challenge.clanIdList.add(subscribedClan.getClanId());
+        });
+
         apply((UpdatedKata updatedKata)->{
             //TODO no lo estan pidiendo en los casos de uso
         });

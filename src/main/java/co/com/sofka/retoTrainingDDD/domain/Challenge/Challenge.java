@@ -8,6 +8,7 @@ import co.com.sofka.retoTrainingDDD.domain.Challenge.valueObjets.Assessment;
 import co.com.sofka.retoTrainingDDD.domain.Challenge.valueObjets.ChallengeId;
 import co.com.sofka.retoTrainingDDD.domain.Challenge.valueObjets.Excercise;
 import co.com.sofka.retoTrainingDDD.domain.Challenge.valueObjets.KataId;
+import co.com.sofka.retoTrainingDDD.domain.Challenge.events.SubscribedClan;
 import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.ClanId;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.valueObjects.DojoId;
 import co.com.sofka.retoTrainingDDD.domain.VOShared.Name;
@@ -38,7 +39,7 @@ public class Challenge extends AggregateEvent<ChallengeId> {
         this.katas = katas;
         this.assessment = assessment;
         this.durationDays = durationDays;
-        appendChange(new CreatedChallenge(name,clanIdList,dojoId,katas,assessment,durationDays)).apply();
+        appendChange(new CreatedChallenge(entityId, name,clanIdList,dojoId,katas,assessment,durationDays)).apply();
     }
 
     private Challenge(ChallengeId entityId) {
@@ -57,8 +58,7 @@ public class Challenge extends AggregateEvent<ChallengeId> {
     }
 
     public void subscriberClan(ClanId clanId){
-        this.clanIdList.add(clanId);
-        //TODO ojo no lanza evento
+        appendChange(new SubscribedClan(clanId)).apply();
     }
 
     public void unsubscriberClan(ClanId clanId){
