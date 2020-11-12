@@ -30,18 +30,16 @@ public class ClanEventChange extends EventChange {
 
         apply((UpdatedScoreOfMember updatedScoreOfMember)-> clan.members.stream().filter(member -> member.identity().equals(updatedScoreOfMember.getMemberId()))
                 .findFirst()
-                .get()
-                .addScore(updatedScoreOfMember.getScore()));
+                .ifPresent(member -> member.addScore(updatedScoreOfMember.getScore())));
 
         apply((UpdateMember updateMember)->{
             clan.members.stream().filter(member -> member.identity().equals(updateMember.getMemberId()))
                     .findFirst()
-                    .get()
-                    .upDateEmail(updateMember.getEmail());
+                    .ifPresent(member -> member.upDateEmail(updateMember.getEmail()));
+
             clan.members.stream().filter(member -> member.identity().equals(updateMember.getMemberId()))
                     .findFirst()
-                    .get()
-                    .upDateGender(updateMember.getGender());
+                    .ifPresent(member -> member.upDateGender(updateMember.getGender()));
         });
     }
 }

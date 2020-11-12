@@ -1,27 +1,40 @@
-package co.com.sofka.retoTrainingDDD.domain.Dojo.events;
+package co.com.sofka.retoTrainingDDD.domain.Dojo.commands;
 
-import co.com.sofka.domain.generic.DomainEvent;
+import co.com.sofka.domain.generic.Command;
 import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.GroupGit;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.Status;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.entities.Sensei;
+import co.com.sofka.retoTrainingDDD.domain.Dojo.events.CreatedDojo;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.valueObjects.DataInfo;
+import co.com.sofka.retoTrainingDDD.domain.Dojo.valueObjects.DojoId;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.valueObjects.Location;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.valueObjects.Rule;
 
 import java.util.List;
 
-public class CreatedDojo extends DomainEvent {
+public class CrearDojo implements Command {
+    private final DojoId dojoId;
+    private final Sensei sensei;
     private final DataInfo dataInfo;
     private final List<Rule> rules;
     private final GroupGit groupGit;
     private final Location location;
 
-    public CreatedDojo(DataInfo dataInfo, List<Rule> rules, GroupGit groupGit, Location location) {
-        super("Dojo.CreatedDojo");
+    public CrearDojo(DojoId entityId, Sensei sensei, DataInfo dataInfo, List<Rule> rules, GroupGit groupGit, Location location) {
+        this.dojoId = entityId;
+        this.sensei = sensei;
         this.dataInfo = dataInfo;
         this.rules = rules;
         this.groupGit = groupGit;
         this.location = location;
+    }
+
+    public DojoId getDojoId() {
+        return dojoId;
+    }
+
+    public Sensei getSensei() {
+        return sensei;
     }
 
     public DataInfo getDataInfo() {

@@ -24,7 +24,6 @@ public class DojoEventChange extends EventChange {
 
         apply((CreatedDojo createdDojo) -> {
             dojo.status = Status.CLOSED;
-            dojo.sensei = createdDojo.getSensei();
             dojo.dataInfo = createdDojo.getDataInfo();
             dojo.rules = createdDojo.getRules();
             dojo.groupGit = createdDojo.getGroupGit();

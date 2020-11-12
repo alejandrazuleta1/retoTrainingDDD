@@ -20,14 +20,13 @@ public class Dojo extends AggregateEvent<DojoId> {
     protected GroupGit groupGit;
     protected Location location;
 
-    public Dojo(DojoId entityId, Sensei sensei, DataInfo dataInfo, List<Rule> rules, GroupGit groupGit, Location location) {
+    public Dojo(DojoId entityId, DataInfo dataInfo, List<Rule> rules, GroupGit groupGit, Location location) {
         super(entityId);
-        this.sensei = sensei;
         this.dataInfo = dataInfo;
         this.rules = rules;
         this.groupGit = groupGit;
         this.location = location;
-        appendChange(new CreatedDojo(sensei,dataInfo,rules,groupGit,location)).apply();
+        appendChange(new CreatedDojo(dataInfo,rules,groupGit,location)).apply();
     }
 
     private Dojo(DojoId entityId) {
