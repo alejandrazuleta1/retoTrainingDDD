@@ -26,7 +26,7 @@ public class Dojo extends AggregateEvent<DojoId> {
         this.rules = rules;
         this.groupGit = groupGit;
         this.location = location;
-        appendChange(new CreatedDojo(dataInfo,rules,groupGit,location)).apply();
+        appendChange(new CreatedDojo(entityId, dataInfo,rules,groupGit,location)).apply();
     }
 
     private Dojo(DojoId entityId) {
