@@ -1,0 +1,47 @@
+package co.com.sofka.retoTrainingDDD.Clan;
+
+import co.com.sofka.domain.generic.EventChange;
+import co.com.sofka.retoTrainingDDD.Clan.entities.Member;
+import co.com.sofka.retoTrainingDDD.Clan.events.*;
+
+public class ClanEventChange extends EventChange {
+    public ClanEventChange(Clan clan) {
+        apply((CreatedClan createdClan)->{
+            clan.members = createdClan.getMembers();
+            clan.color = createdClan.getColor();
+            clan.groupGit = createdClan.getGroupGit();
+            clan.name = createdClan.getName();
+        });
+
+        apply((AddedMember addedMember) -> clan.members.add(new Member(addedMember.getMemberId(),
+                addedMember.getName(),
+                addedMember.getGender(),
+                addedMember.getOwner(),
+                addedMember.getPersonId(),
+                addedMember.getMemberGit(),
+                addedMember.getEmail(),
+                addedMember.getScores())));
+
+        apply((AppliedColor appliedColor) -> clan.color = appliedColor.getColor());
+
+        apply((RevokedMember revokedMember)-> clan.members.removeIf(member -> member.identity().equals(revokedMember.getMemberId())));
+
+        apply((UpdatedName updatedName)-> clan.name = updatedName.getName());
+
+        apply((UpdatedScoreOfMember updatedScoreOfMember)-> clan.members.stream().filter(member -> member.identity().equals(updatedScoreOfMember.getMemberId()))
+                .findFirst()
+                .get()
+                .addScore(updatedScoreOfMember.getScore()));
+
+        apply((UpdateMember updateMember)->{
+            clan.members.stream().filter(member -> member.identity().equals(updateMember.getMemberId()))
+                    .findFirst()
+                    .get()
+                    .upDateEmail(updateMember.getEmail());
+            clan.members.stream().filter(member -> member.identity().equals(updateMember.getMemberId()))
+                    .findFirst()
+                    .get()
+                    .upDateGender(updateMember.getGender());
+        });
+    }
+}
