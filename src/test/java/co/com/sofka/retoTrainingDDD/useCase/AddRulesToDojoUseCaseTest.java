@@ -18,17 +18,9 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
 class AddRulesToDojoUseCaseTest extends UseCaseHandleBaseTest{
-    @BeforeEach
-    void setup(){
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
 
     @Test
-    void addRulesToDojoUseCaseTest(){
+    void addRulesToDojoUseCaseTest() throws InterruptedException{
         List<Rule> rules = new ArrayList<>();
         rules.add(new Rule("En las salas de entrenamiento generar agregar una interpretación de mas de 200 caracteres"));
         rules.add(new Rule("Trabajar las lecturas de forma consciente durante el proceso de entrenamiento"));
@@ -56,6 +48,7 @@ class AddRulesToDojoUseCaseTest extends UseCaseHandleBaseTest{
                 .setIdentifyExecutor(DojoId.of("1").value())
                 .asyncExecutor(useCase,new RequestCommand<>(agregarReglasAlDojo))
                 .subscribe(subscriber);
+        Thread.sleep(1000);
 
         verify(subscriber,times(2)).onNext(eventCaptor.capture());
     }

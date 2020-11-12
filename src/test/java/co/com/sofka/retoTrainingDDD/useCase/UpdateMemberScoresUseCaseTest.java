@@ -22,17 +22,9 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
 class UpdateMemberScoresUseCaseTest extends UseCaseHandleBaseTest{
-    @BeforeEach
-    void setup(){
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
 
     @Test
-    void updateMemberScoresTest(){
+    void updateMemberScoresTest() throws InterruptedException{
         UpdateMemberScoresUseCase useCase = new UpdateMemberScoresUseCase();
         EvaluatedClan evaluatedClan = new EvaluatedClan(ClanId.of("1"),new Score(10, DojoId.of("20202"), new Date("12/11/2020")));
 
@@ -67,6 +59,7 @@ class UpdateMemberScoresUseCaseTest extends UseCaseHandleBaseTest{
                 .setIdentifyExecutor("1")
                 .asyncExecutor(useCase, new TriggeredEvent<>(evaluatedClan))
                 .subscribe(subscriber);
+        Thread.sleep(1000);
 
         verify(subscriber, times(1)).onNext(eventCaptor.capture());
         UpdatedScoreOfMember updatedScoreOfMember = (UpdatedScoreOfMember) eventCaptor.getAllValues().get(0);

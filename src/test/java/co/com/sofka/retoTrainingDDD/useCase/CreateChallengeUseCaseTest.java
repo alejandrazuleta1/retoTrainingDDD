@@ -24,7 +24,7 @@ import static org.mockito.Mockito.verify;
 class CreateChallengeUseCaseTest extends UseCaseHandleBaseTest{
 
     @Test
-    void createChallengeUseCaseTest(){
+    void createChallengeUseCaseTest() throws InterruptedException{
         DojoId dojoId = new DojoId("1");
 
         List<ClanId> clanIdList = new ArrayList<>();
@@ -49,6 +49,7 @@ class CreateChallengeUseCaseTest extends UseCaseHandleBaseTest{
                         useCase,
                         new RequestCommand<>(crearChallenge))
                 .subscribe(subscriber);
+        Thread.sleep(1000);
 
         verify(subscriber,times(1)).onNext(eventCaptor.capture());
         CreatedChallenge createdChallenge = (CreatedChallenge) eventCaptor.getAllValues().get(0);

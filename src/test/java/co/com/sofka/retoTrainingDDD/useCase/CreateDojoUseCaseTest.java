@@ -22,17 +22,9 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 class CreateDojoUseCaseTest extends UseCaseHandleBaseTest{
-    @BeforeEach
-    void setup(){
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
 
     @Test
-    void crearDojoTest(){
+    void crearDojoTest() throws InterruptedException{
         Sensei sensei = new Sensei(new SenseiId("80903124"),
                 new Name("Raul Alzate"),
                 new PersonId("70809123"),
@@ -62,6 +54,7 @@ class CreateDojoUseCaseTest extends UseCaseHandleBaseTest{
                         useCase,
                         new RequestCommand<>(crearDojo))
                 .subscribe(subscriber);
+        Thread.sleep(1000);
 
         verify(subscriber,times(2)).onNext(eventCaptor.capture());
         AssignedSensei assignedSensei = (AssignedSensei) eventCaptor.getAllValues().get(1);

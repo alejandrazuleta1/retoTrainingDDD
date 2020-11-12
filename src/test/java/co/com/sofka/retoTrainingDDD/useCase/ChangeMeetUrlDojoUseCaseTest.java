@@ -21,17 +21,9 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
 class ChangeMeetUrlDojoUseCaseTest extends UseCaseHandleBaseTest{
-    @BeforeEach
-    void setup(){
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
 
     @Test
-    void changeMeetUrlDojo(){
+    void changeMeetUrlDojo() throws InterruptedException{
         var location = new Location("www.meetActualizada.com",
                 "Medellin Sofka",
                 "Este dojo esta dirigido para las personas del training",
@@ -58,6 +50,7 @@ class ChangeMeetUrlDojoUseCaseTest extends UseCaseHandleBaseTest{
                         useCase,
                         new RequestCommand<>(cambiarUrlMeetDojo))
                 .subscribe(subscriber);
+        Thread.sleep(1000);
 
         verify(subscriber,times(1)).onNext(eventCaptor.capture());
     }

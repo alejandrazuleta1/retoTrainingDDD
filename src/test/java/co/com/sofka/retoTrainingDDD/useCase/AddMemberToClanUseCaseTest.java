@@ -22,17 +22,8 @@ import static org.mockito.Mockito.*;
 
 class AddMemberToClanUseCaseTest extends UseCaseHandleBaseTest{
 
-    @BeforeEach
-    void setup(){
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
     @Test
-    void addMemberToClan(){
+    void addMemberToClan() throws InterruptedException{
         AgregarMiembroAClan agregarMiembroAClan = new AgregarMiembroAClan(
                 ClanId.of("20202"),
                 new MemberId("78908123"),
@@ -60,6 +51,7 @@ class AddMemberToClanUseCaseTest extends UseCaseHandleBaseTest{
                 .setIdentifyExecutor(ClanId.of("20202").value())
                 .asyncExecutor(useCase,new RequestCommand<>(agregarMiembroAClan))
                 .subscribe(subscriber);
+        Thread.sleep(1000);
 
         verify(subscriber,times(1)).onNext(eventCaptor.capture());
         AddedMember addedMember = (AddedMember) eventCaptor.getAllValues().get(0);
