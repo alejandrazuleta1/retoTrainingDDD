@@ -1,6 +1,7 @@
 package co.com.sofka.retoTrainingDDD.domain.Clan;
 
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.retoTrainingDDD.domain.Clan.entities.Member;
 import co.com.sofka.retoTrainingDDD.domain.Clan.events.*;
 import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.*;
@@ -25,6 +26,17 @@ public class Clan extends AggregateEvent<ClanId> {
         var color = Objects.requireNonNull(_color);
         var name = Objects.requireNonNull(_name);
         appendChange(new CreatedClan(entityId,members,groupGit,color,name)).apply();
+    }
+
+    private Clan(ClanId entityId) {
+        super(entityId);
+        subscribe(new ClanEventChange(this));
+    }
+
+    public static Clan from(ClanId entityId, List<DomainEvent> eventList) {
+        var Clan = new Clan(entityId);
+        eventList.forEach(Clan::applyEvent);
+        return Clan;
     }
 
     public void addNewMember(MemberId memberId,
