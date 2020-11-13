@@ -5,10 +5,10 @@ import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.GroupGit;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.Frecuency;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.commands.AgregarReglasAlDojo;
+import co.com.sofka.retoTrainingDDD.domain.Dojo.events.AddedRule;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.events.CreatedDojo;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.valueObjects.*;
 import co.com.sofka.retoTrainingDDD.domain.VOShared.OpeningHours;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -51,5 +51,9 @@ class AddRulesToDojoUseCaseTest extends UseCaseHandleBaseTest{
         Thread.sleep(1000);
 
         verify(subscriber,times(2)).onNext(eventCaptor.capture());
+        List<AddedRule> addedRules = new ArrayList<>();
+        addedRules.add((AddedRule) eventCaptor.getAllValues().get(0));
+        addedRules.add((AddedRule) eventCaptor.getAllValues().get(1));
+        addedRules.forEach(addedrule-> System.out.println(addedrule.getRule().value()));
     }
 }
