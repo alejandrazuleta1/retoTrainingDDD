@@ -73,5 +73,4 @@ class UpdateMemberScoresUseCaseTest extends UseCaseHandleBaseTest{
         UpdatedScoreOfMember updatedScoreOfMember = (UpdatedScoreOfMember) eventCaptor.getAllValues().get(0);
         System.out.println(updatedScoreOfMember.getScore().value().point());
     }
-
 }

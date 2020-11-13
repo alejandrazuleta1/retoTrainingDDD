@@ -36,26 +36,17 @@ public class EvaluateClanByChallengeIdUseCase extends UseCase<TriggeredEvent<Rev
         var service = getService(ListaPuntajesClanesService.class).orElseThrow();
         var mapPuntosByClanId = service.getListaPuntajesClanes(challengeId);
 
-        if(!mapPuntosByClanId.isEmpty()) {
-            for (Map.Entry<ClanId,Integer> entry : mapPuntosByClanId.entrySet()) {
+        if(mapPuntosByClanId != null) {
+            for (Map.Entry<ClanId,Integer> entry : mapPuntosByClanId.getPuntajeClanes().entrySet()) {
                 EvaluatedClan evaluatedClan = new EvaluatedClan(ClanId.of(entry.getKey().value()),new Score(entry.getValue(), DojoId.of("20202"), new Date("12/11/2020")));
 
                 UseCaseHandler.getInstance()
                         .setIdentifyExecutor(evaluatedClan.getClanId().value())
                         .asyncExecutor(updateMemberScoresUseCase, new TriggeredEvent<>(evaluatedClan))
                         .subscribe(subscriber);
-                esperar2Segundos();
                 //emit().onSuccess(new ResponseEvents(List.of()));
             }
         }
         emit().onSuccess(new ResponseEvents(List.of()));
-    }
-
-    private void esperar2Segundos() {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 }

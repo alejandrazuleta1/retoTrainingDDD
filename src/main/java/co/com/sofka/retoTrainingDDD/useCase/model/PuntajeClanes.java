@@ -6,4 +6,12 @@ import java.util.Map;
 
 public class PuntajeClanes {
     Map<ClanId,Integer> puntajeClanes;
+
+    public PuntajeClanes(Map<ClanId, Integer> getPuntajeClanes) {
+        this.puntajeClanes = getPuntajeClanes;
+    }
+
+    public Map<ClanId, Integer> getPuntajeClanes() {
+        return puntajeClanes;
+    }
 }

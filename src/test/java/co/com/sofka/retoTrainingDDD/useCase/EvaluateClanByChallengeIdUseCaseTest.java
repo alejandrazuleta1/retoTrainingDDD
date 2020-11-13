@@ -116,14 +116,12 @@ class EvaluateClanByChallengeIdUseCaseTest extends  UseCaseHandleBaseTest{
     }
 
     @Test
-    void evaluateClanByChallengeId(){
+    void evaluateClanByChallengeId() throws InterruptedException{
         RevokedChallenge revokedChallenge = new RevokedChallenge();
         revokedChallenge.setAggregateRootId(CHALLENGE_ID);
 
-        when(listaPuntajesClanesService.getListaPuntajesClanes(any())).thenReturn(Map.of(
-            new ClanId("1"),20,
-            new ClanId("2"),5
-        ));
+        when(listaPuntajesClanesService.getListaPuntajesClanes(any())).thenReturn(new PuntajeClanes(Map.of(new ClanId("1"),20,
+                new ClanId("2"),5)));
 
         /*when(repository.getEventsBy(anyString())).thenAnswer(new Answer<List<DomainEvent>>() {
             @Override
@@ -156,6 +154,7 @@ class EvaluateClanByChallengeIdUseCaseTest extends  UseCaseHandleBaseTest{
                 .setIdentifyExecutor(CHALLENGE_ID)
                 .asyncExecutor(useCase, new TriggeredEvent<>(revokedChallenge))
                 .subscribe(subscriber);
+        Thread.sleep(1000);
 
         //verificacion
         verify(subscriber, times(2)).onNext(eventCaptor.capture());
