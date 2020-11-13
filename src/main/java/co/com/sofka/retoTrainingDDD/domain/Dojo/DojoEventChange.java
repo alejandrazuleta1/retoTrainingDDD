@@ -41,5 +41,9 @@ public class DojoEventChange extends EventChange {
         apply((UpdatedDataSensei updatedDataSensei)->{
             dojo.sensei.update(updatedDataSensei.getName(), updatedDataSensei.getPersonId(), updatedDataSensei.getSpecialty(), updatedDataSensei.getMemberGit(), updatedDataSensei.getAccomplishmentList());
         });
+
+        apply((ChangedLocation changedLocation)->{
+            dojo.location = changedLocation.getLocation();
+        });
     }
 }

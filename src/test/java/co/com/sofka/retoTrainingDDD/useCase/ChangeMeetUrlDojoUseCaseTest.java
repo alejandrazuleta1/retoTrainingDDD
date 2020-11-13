@@ -5,6 +5,7 @@ import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.GroupGit;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.Frecuency;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.commands.CambiarUrlMeetDojo;
+import co.com.sofka.retoTrainingDDD.domain.Dojo.events.ChangedLocation;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.events.CreatedDojo;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.valueObjects.DataInfo;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.valueObjects.DojoId;
@@ -53,5 +54,7 @@ class ChangeMeetUrlDojoUseCaseTest extends UseCaseHandleBaseTest{
         Thread.sleep(1000);
 
         verify(subscriber,times(1)).onNext(eventCaptor.capture());
+        ChangedLocation changedLocation = (ChangedLocation) eventCaptor.getAllValues().get(0);
+        System.out.println(changedLocation.getLocation().value().urlMeet());
     }
 }
