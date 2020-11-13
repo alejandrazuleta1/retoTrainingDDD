@@ -91,6 +91,6 @@ public class Challenge extends AggregateEvent<ChallengeId> {
     }
 
     public void revokeChallenge(){
-        appendChange(new RevokedChallenge()).apply();
+        //appendChange(new RevokedChallenge(clanId, score)).apply();
     }
 }

@@ -28,29 +28,38 @@ class UpdateMemberScoresUseCaseTest extends UseCaseHandleBaseTest{
         UpdateMemberScoresUseCase useCase = new UpdateMemberScoresUseCase();
         EvaluatedClan evaluatedClan = new EvaluatedClan(ClanId.of("1"),new Score(10, DojoId.of("20202"), new Date("12/11/2020")));
 
+        var addedMember = new AddedMember(
+                new MemberId("1"),
+                new Name("Juan"),
+                new Gender("M"),
+                Boolean.FALSE,
+                new PersonId("1087234567"),
+                new MemberGit(2,"www.linkdeimagen.com","juan.zuleta"),
+                new Email("juan.zuleta@sofka.com.co"),
+                new ArrayList<>());
+        addedMember.setAggregateRootId(ClanId.of("2").value());
+
+        var addedMember2 = new AddedMember(
+                new MemberId("1"),
+                new Name("Alejandro Zuleta"),
+                new Gender("M"),
+                Boolean.FALSE,
+                new PersonId("103155953"),
+                new MemberGit(3,"www.linkdeimagen2.com","alejandro.zuleta"),
+                new Email("alejandra.zuleta@sofka.com.co"),
+                new ArrayList<>());
+        addedMember2.setAggregateRootId(ClanId.of("2").value());
+
+        var createdClan1 = new CreatedClan(ClanId.of("1"),
+                new ArrayList<>(),
+                new GroupGit("group4"),
+                new Name("Serway"));
+        createdClan1.setAggregateRootId(ClanId.of("1").value());
+
         when(repository.getEventsBy(anyString())).thenReturn(List.of(
-                new CreatedClan(ClanId.of("20202"),
-                        new ArrayList<>(),
-                        new GroupGit("group4"),
-                        new Name("Serway")),
-                new AddedMember(
-                        new MemberId("1"),
-                        new Name("Alejandra Zuleta"),
-                        new Gender("F"),
-                        Boolean.FALSE,
-                        new PersonId("1087234567"),
-                        new MemberGit(2,"www.linkdeimagen.com","alejandra.zuleta"),
-                        new Email("alejandra.zuleta@sofka.com.co"),
-                        new ArrayList<>()),
-                new AddedMember(
-                        new MemberId("1"),
-                        new Name("Alejandro Zuleta"),
-                        new Gender("M"),
-                        Boolean.FALSE,
-                        new PersonId("103155953"),
-                        new MemberGit(3,"www.linkdeimagen2.com","alejandro.zuleta"),
-                        new Email("alejandra.zuleta@sofka.com.co"),
-                        new ArrayList<>())
+                createdClan1,
+                addedMember,
+                addedMember2
         ));
 
         useCase.addRepository(repository);
