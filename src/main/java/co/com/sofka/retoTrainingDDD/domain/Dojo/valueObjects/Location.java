@@ -1,7 +1,6 @@
 package co.com.sofka.retoTrainingDDD.domain.Dojo.valueObjects;
 
 import co.com.sofka.domain.generic.ValueObject;
-import co.com.sofka.retoTrainingDDD.domain.VOShared.OpeningHours;
 
 public class Location implements ValueObject<Location.Propiedades> {
     private final String urlMeet;

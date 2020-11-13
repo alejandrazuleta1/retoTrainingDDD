@@ -1,10 +1,8 @@
 package co.com.sofka.retoTrainingDDD.domain.Dojo.commands;
 
 import co.com.sofka.domain.generic.Command;
-import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.GroupGit;
-import co.com.sofka.retoTrainingDDD.domain.Dojo.Status;
+import co.com.sofka.retoTrainingDDD.domain.VOShared.GroupGit;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.entities.Sensei;
-import co.com.sofka.retoTrainingDDD.domain.Dojo.events.CreatedDojo;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.valueObjects.DataInfo;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.valueObjects.DojoId;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.valueObjects.Location;

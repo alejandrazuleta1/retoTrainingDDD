@@ -1,4 +1,4 @@
-package co.com.sofka.retoTrainingDDD.domain.VOShared;
+package co.com.sofka.retoTrainingDDD.domain.Dojo.valueObjects;
 
 import co.com.sofka.domain.generic.ValueObject;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.Frecuency;

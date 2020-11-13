@@ -3,15 +3,10 @@ package co.com.sofka.retoTrainingDDD.useCase;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.retoTrainingDDD.domain.Clan.commands.AgregarMiembroAClan;
-import co.com.sofka.retoTrainingDDD.domain.Clan.entities.Member;
 import co.com.sofka.retoTrainingDDD.domain.Clan.events.AddedMember;
 import co.com.sofka.retoTrainingDDD.domain.Clan.events.CreatedClan;
 import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.*;
-import co.com.sofka.retoTrainingDDD.domain.VOShared.MemberGit;
-import co.com.sofka.retoTrainingDDD.domain.VOShared.Name;
-import co.com.sofka.retoTrainingDDD.domain.VOShared.OpeningHours;
-import co.com.sofka.retoTrainingDDD.domain.VOShared.PersonId;
-import org.junit.jupiter.api.BeforeEach;
+import co.com.sofka.retoTrainingDDD.domain.VOShared.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -40,7 +35,7 @@ class AddMemberToClanUseCaseTest extends UseCaseHandleBaseTest{
                 new CreatedClan(
                         ClanId.of("20202"),
                         new ArrayList<>(),
-                        new GroupGit("group4"),
+                        new GroupGit(12,new Path("path1"),new Name("grupo1")),
                         new Name("Serway"))
         ));
 

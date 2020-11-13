@@ -8,11 +8,7 @@ import co.com.sofka.retoTrainingDDD.domain.Clan.events.UpdatedScoreOfMember;
 import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.*;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.events.EvaluatedClan;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.valueObjects.DojoId;
-import co.com.sofka.retoTrainingDDD.domain.VOShared.Date;
-import co.com.sofka.retoTrainingDDD.domain.VOShared.MemberGit;
-import co.com.sofka.retoTrainingDDD.domain.VOShared.Name;
-import co.com.sofka.retoTrainingDDD.domain.VOShared.PersonId;
-import org.junit.jupiter.api.BeforeEach;
+import co.com.sofka.retoTrainingDDD.domain.VOShared.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -52,7 +48,7 @@ class UpdateMemberScoresUseCaseTest extends UseCaseHandleBaseTest{
 
         var createdClan1 = new CreatedClan(ClanId.of("1"),
                 new ArrayList<>(),
-                new GroupGit("group4"),
+                new GroupGit(12,new Path("path1"),new Name("grupo1")),
                 new Name("Serway"));
         createdClan1.setAggregateRootId(ClanId.of("1").value());
 

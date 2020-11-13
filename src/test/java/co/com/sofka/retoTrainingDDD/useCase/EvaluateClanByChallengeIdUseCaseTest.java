@@ -4,31 +4,20 @@ import co.com.sofka.business.generic.ServiceBuilder;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.TriggeredEvent;
-import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.retoTrainingDDD.domain.Challenge.events.CreatedChallenge;
 import co.com.sofka.retoTrainingDDD.domain.Challenge.events.RevokedChallenge;
-import co.com.sofka.retoTrainingDDD.domain.Challenge.events.SubscribedClan;
-import co.com.sofka.retoTrainingDDD.domain.Challenge.valueObjets.Assessment;
-import co.com.sofka.retoTrainingDDD.domain.Challenge.valueObjets.ChallengeId;
 import co.com.sofka.retoTrainingDDD.domain.Clan.events.AddedMember;
 import co.com.sofka.retoTrainingDDD.domain.Clan.events.CreatedClan;
 import co.com.sofka.retoTrainingDDD.domain.Clan.events.UpdatedScoreOfMember;
 import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.*;
-import co.com.sofka.retoTrainingDDD.domain.Dojo.valueObjects.DojoId;
-import co.com.sofka.retoTrainingDDD.domain.VOShared.MemberGit;
-import co.com.sofka.retoTrainingDDD.domain.VOShared.Name;
-import co.com.sofka.retoTrainingDDD.domain.VOShared.PersonId;
+import co.com.sofka.retoTrainingDDD.domain.VOShared.*;
 import co.com.sofka.retoTrainingDDD.useCase.model.PuntajeClanes;
 import co.com.sofka.retoTrainingDDD.useCase.service.ListaPuntajesClanesService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Spy;
-import org.mockito.invocation.InvocationOnMock;
-import org.mockito.stubbing.Answer;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -94,13 +83,13 @@ class EvaluateClanByChallengeIdUseCaseTest extends  UseCaseHandleBaseTest{
 
         var createdClan1 = new CreatedClan(ClanId.of("1"),
                 new ArrayList<>(),
-                new GroupGit("group4"),
+                new GroupGit(12,new Path("path1"),new Name("grupo1")),
                 new Name("Serway"));
         createdClan1.setAggregateRootId(ClanId.of("1").value());
 
         var createdClan2 = new CreatedClan(ClanId.of("2"),
                 new ArrayList<>(),
-                new GroupGit("group4"),
+                new GroupGit(11,new Path("path2"),new Name("grupo2")),
                 new Name("Serway"));
         createdClan2.setAggregateRootId(ClanId.of("2").value());
 

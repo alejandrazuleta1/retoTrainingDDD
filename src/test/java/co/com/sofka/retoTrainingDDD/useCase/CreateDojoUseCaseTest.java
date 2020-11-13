@@ -2,17 +2,13 @@ package co.com.sofka.retoTrainingDDD.useCase;
 
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
-import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.GroupGit;
+import co.com.sofka.retoTrainingDDD.domain.VOShared.*;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.Frecuency;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.commands.CrearDojo;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.entities.Sensei;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.events.AssignedSensei;
 import co.com.sofka.retoTrainingDDD.domain.Dojo.valueObjects.*;
-import co.com.sofka.retoTrainingDDD.domain.VOShared.MemberGit;
-import co.com.sofka.retoTrainingDDD.domain.VOShared.Name;
-import co.com.sofka.retoTrainingDDD.domain.VOShared.OpeningHours;
-import co.com.sofka.retoTrainingDDD.domain.VOShared.PersonId;
-import org.junit.jupiter.api.BeforeEach;
+import co.com.sofka.retoTrainingDDD.domain.Dojo.valueObjects.OpeningHours;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -45,7 +41,7 @@ class CreateDojoUseCaseTest extends UseCaseHandleBaseTest{
                 sensei,
                 new DataInfo("Dojo Training","Primer Dojo"),
                 rules,
-                new GroupGit("grupo1"),
+                new GroupGit(12,new Path("path1"),new Name("grupo1")),
                 location);
 
         CreateDojoUseCase useCase = new CreateDojoUseCase();

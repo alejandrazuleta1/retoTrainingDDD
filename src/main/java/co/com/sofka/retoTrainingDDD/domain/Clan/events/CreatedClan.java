@@ -3,8 +3,7 @@ package co.com.sofka.retoTrainingDDD.domain.Clan.events;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.retoTrainingDDD.domain.Clan.entities.Member;
 import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.ClanId;
-import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.Color;
-import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.GroupGit;
+import co.com.sofka.retoTrainingDDD.domain.VOShared.GroupGit;
 import co.com.sofka.retoTrainingDDD.domain.VOShared.Name;
 
 import java.util.List;

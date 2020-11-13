@@ -2,14 +2,11 @@ package co.com.sofka.retoTrainingDDD.useCase;
 
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
-import co.com.sofka.retoTrainingDDD.domain.Challenge.events.CreatedChallenge;
 import co.com.sofka.retoTrainingDDD.domain.Clan.commands.CrearClan;
 import co.com.sofka.retoTrainingDDD.domain.Clan.entities.Member;
 import co.com.sofka.retoTrainingDDD.domain.Clan.events.CreatedClan;
 import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.*;
-import co.com.sofka.retoTrainingDDD.domain.VOShared.MemberGit;
-import co.com.sofka.retoTrainingDDD.domain.VOShared.Name;
-import co.com.sofka.retoTrainingDDD.domain.VOShared.PersonId;
+import co.com.sofka.retoTrainingDDD.domain.VOShared.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -35,7 +32,8 @@ class CreateClanUseCaseTest extends UseCaseHandleBaseTest{
         CrearClan crearClan = new CrearClan(
                 new ClanId("13"),
                 members,
-                new GroupGit("group.git"),new Name("The best Clan"));
+                new GroupGit(12,new Path("path1"),new Name("grupo1")),
+                new Name("The best Clan"));
 
         CreateClanUseCase useCase = new CreateClanUseCase();
         UseCaseHandler.getInstance()
