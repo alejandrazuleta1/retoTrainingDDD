@@ -1,23 +1,21 @@
-package co.com.sofka.retoTrainingDDD.domain.Clan.events;
+package co.com.sofka.retoTrainingDDD.domain.Clan.commands;
 
-import co.com.sofka.domain.generic.DomainEvent;
+import co.com.sofka.domain.generic.Command;
 import co.com.sofka.retoTrainingDDD.domain.Clan.entities.Member;
 import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.ClanId;
-import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.Color;
 import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.GroupGit;
 import co.com.sofka.retoTrainingDDD.domain.VOShared.Name;
 
 import java.util.List;
 
-public class CreatedClan extends DomainEvent {
+public class CrearClan implements Command {
     private final ClanId clanId;
     private final List<Member> members;
     private final GroupGit groupGit;
     private final Name name;
 
-    public CreatedClan(ClanId entityId, List<Member> members, GroupGit groupGit, Name name) {
-        super("Clan.CreatedClan");
-        this.clanId = entityId;
+    public CrearClan(ClanId clanId, List<Member> members, GroupGit groupGit, Name name) {
+        this.clanId = clanId;
         this.members = members;
         this.groupGit = groupGit;
         this.name = name;

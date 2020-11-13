@@ -32,7 +32,6 @@ class UpdateMemberScoresUseCaseTest extends UseCaseHandleBaseTest{
                 new CreatedClan(ClanId.of("20202"),
                         new ArrayList<>(),
                         new GroupGit("group4"),
-                        new Color("Azul"),
                         new Name("Serway")),
                 new AddedMember(
                         new MemberId("1"),

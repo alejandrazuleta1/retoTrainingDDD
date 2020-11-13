@@ -19,13 +19,12 @@ public class Clan extends AggregateEvent<ClanId> {
     protected Color color;
     protected Name name;
 
-    public Clan(ClanId entityId, List<Member> _members, GroupGit _groupGit, Color _color, Name _name) {
+    public Clan(ClanId entityId, List<Member> _members, GroupGit _groupGit, Name _name) {
         super(entityId);
         var members = Objects.requireNonNull(_members);
         var groupGit = Objects.requireNonNull(_groupGit);
-        var color = Objects.requireNonNull(_color);
         var name = Objects.requireNonNull(_name);
-        appendChange(new CreatedClan(entityId,members,groupGit,color,name)).apply();
+        appendChange(new CreatedClan(entityId,members,groupGit,name)).apply();
     }
 
     private Clan(ClanId entityId) {

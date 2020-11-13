@@ -3,12 +3,15 @@ package co.com.sofka.retoTrainingDDD.domain.Clan;
 import co.com.sofka.domain.generic.EventChange;
 import co.com.sofka.retoTrainingDDD.domain.Clan.entities.Member;
 import co.com.sofka.retoTrainingDDD.domain.Clan.events.*;
+import co.com.sofka.retoTrainingDDD.domain.Clan.valueObjects.Color;
+
+import java.util.Objects;
 
 public class ClanEventChange extends EventChange {
     public ClanEventChange(Clan clan) {
         apply((CreatedClan createdClan)->{
             clan.members = createdClan.getMembers();
-            clan.color = createdClan.getColor();
+            clan.color = new Color("Blanco");
             clan.groupGit = createdClan.getGroupGit();
             clan.name = createdClan.getName();
         });

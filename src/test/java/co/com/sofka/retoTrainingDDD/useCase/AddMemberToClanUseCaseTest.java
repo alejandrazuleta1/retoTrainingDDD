@@ -41,7 +41,6 @@ class AddMemberToClanUseCaseTest extends UseCaseHandleBaseTest{
                         ClanId.of("20202"),
                         new ArrayList<>(),
                         new GroupGit("group4"),
-                        new Color("Azul"),
                         new Name("Serway"))
         ));
 

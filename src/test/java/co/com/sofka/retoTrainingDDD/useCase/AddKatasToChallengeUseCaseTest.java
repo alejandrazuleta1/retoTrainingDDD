@@ -6,7 +6,6 @@ import co.com.sofka.retoTrainingDDD.domain.Challenge.commands.AgregarKatasAlChal
 import co.com.sofka.retoTrainingDDD.domain.Challenge.entities.Kata;
 import co.com.sofka.retoTrainingDDD.domain.Challenge.events.AddedKata;
 import co.com.sofka.retoTrainingDDD.domain.Challenge.events.CreatedChallenge;
-import co.com.sofka.retoTrainingDDD.domain.Challenge.events.SubscribedClan;
 import co.com.sofka.retoTrainingDDD.domain.Challenge.valueObjets.Assessment;
 import co.com.sofka.retoTrainingDDD.domain.Challenge.valueObjets.ChallengeId;
 import co.com.sofka.retoTrainingDDD.domain.Challenge.valueObjets.KataId;
