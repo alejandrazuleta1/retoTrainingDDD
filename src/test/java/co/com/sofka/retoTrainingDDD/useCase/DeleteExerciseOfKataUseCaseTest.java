@@ -30,7 +30,7 @@ class DeleteExerciseOfKataUseCaseTest extends UseCaseHandleBaseTest{
 
     @Test
     void deleteExerciseToKataTest() throws InterruptedException{
-        Map<Object, Object> metaData = new HashMap<Object, Object>();
+        Map<Object,Object> metaData = Map.of(1,"metadata");
         var eliminarEjercicioACata = new EliminarEjercicioDeKata(ChallengeId.of("10"), KataId.of("2"),new Excercise(5,metaData,"Aprender DDD"));
 
         DeleteExerciseOfKataUseCase useCase = new DeleteExerciseOfKataUseCase();

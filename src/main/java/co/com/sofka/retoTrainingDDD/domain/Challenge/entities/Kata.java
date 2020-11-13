@@ -25,7 +25,10 @@ public class Kata extends Entity<KataId> {
     }
 
     public void removeExercise(Excercise excercise){
-        excerciseList.removeIf(excercise1 -> excercise1.equals(excercise));
+        excerciseList.removeIf(excercise1 ->
+            excercise1.value().goal().equals(excercise.value().goal()) &&
+            excercise1.value().level() == excercise.value().level() &&
+            excercise1.value().metadata().equals(excercise.value().metadata()));
     }
 
     public void addNewExcersise(Excercise excercise){
