@@ -82,6 +82,10 @@ public class Challenge extends AggregateEvent<ChallengeId> {
         appendChange(new AddedExerciseOfKata(kataId,excercise)).apply();
     }
 
+    public void deleteExerciseOfKata(KataId kataId,Excercise excercise){
+        appendChange(new DeletedExerciseOfKata(kataId,excercise)).apply();
+    }
+
     public void assignAsssessment(Assessment assessment){
         appendChange(new AssignedAssessment(assessment)).apply();
     }

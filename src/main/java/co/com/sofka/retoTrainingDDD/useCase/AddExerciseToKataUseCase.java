@@ -13,6 +13,5 @@ public class AddExerciseToKataUseCase extends UseCase<RequestCommand<AgregarEjer
         var challenge = Challenge.from(command.getChallengeId(),retrieveEvents());
         challenge.addExerciseOfKata(command.getKataId(), command.getExcercise());
         emit().onSuccess(new ResponseEvents(challenge.getUncommittedChanges()));
-
     }
 }

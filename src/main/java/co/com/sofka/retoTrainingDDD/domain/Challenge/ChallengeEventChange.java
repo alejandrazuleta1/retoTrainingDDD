@@ -19,8 +19,13 @@ public class ChallengeEventChange extends EventChange {
         apply((AddedExerciseOfKata addedExerciseOfKata)->{
             challenge.katas.stream().filter(kata -> kata.identity().equals(addedExerciseOfKata.getKataId()))
                     .findFirst()
-                    .get()
-                    .ExcerciseList().add(addedExerciseOfKata.getExcercise());
+                    .ifPresent(kata -> kata.addNewExcersise(addedExerciseOfKata.getExcercise()));
+        });
+
+        apply((DeletedExerciseOfKata deletedExerciseOfKata)->{
+            challenge.katas.stream().filter(kata -> kata.identity().equals(deletedExerciseOfKata.getKataId()))
+                    .findFirst()
+                    .ifPresent(kata -> kata.removeExercise(deletedExerciseOfKata.getExcercise()));
         });
 
         apply((AddedKata addedKata)->{
